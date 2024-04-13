@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@types/react-redux": "7.1.33",
+    "axios": "1.6.7",
+    "react-redux": "9.1.0",
+    "redux": "5.0.1",
+    "redux-thunk": "3.1.0"
+  },
+  "name": "showcasechallenges",
+  "version": "1.0.0",
+  "description": "Project to experiment with a variety of coding challenges.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/valon-loshaj/ShowcaseChallenges.git"
+  },
+  "author": "Valon Loshaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valon-loshaj/ShowcaseChallenges/issues"
+  },
+  "homepage": "https://github.com/valon-loshaj/ShowcaseChallenges#readme"
+}
