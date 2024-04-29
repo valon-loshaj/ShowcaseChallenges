@@ -12,14 +12,22 @@ Output: true
 Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 */
 
-const canJump = function (nums) {
-	let farthest = 0;
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var canJump = function (nums) {
+	// loop through nums
+	let furthest = 0;
 	for (let i = 0; i < nums.length; i++) {
-		if (i > farthest) {
+		// handle the case where the current index is beyond the furthest jump
+		if (i > furthest) {
 			return false;
 		}
-		farthest = Math.max(farthest, i + nums[i]);
-		if (farthest >= nums.length - 1) {
+		// determine what is the furthest you can jump
+		furthest = Math.max(furthest, i + nums[i]);
+		// if the furthest point goes beyond the end of the lenght of the array, return true
+		if (furthest >= nums.length - 1) {
 			return true;
 		}
 	}
