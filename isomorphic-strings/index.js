@@ -1,34 +1,27 @@
-/**
- * @param {string} s
- * @param {string} t
- * @return {boolean}
- */
 const isIsomorphic = function (s, t) {
 	if (s.length !== t.length) {
-		return false;
+		return false; // Early exit if the strings have different lengths
 	}
 
-	const sToT = new Map(); // Map to track character mapping from s to t
-	const tToS = new Map(); // Map to ensure no two characters in s map to the same character in t
+	const sToT = new Map();
+	const tToS = new Map();
 
 	for (let i = 0; i < s.length; i++) {
 		const sChar = s.charAt(i);
 		const tChar = t.charAt(i);
 
-		if (sToT.has(sChar)) {
-			// Check if existing mapping matches current character in t
-			if (sToT.get(sChar) !== tChar) {
-				return false;
-			}
-		} else {
-			// Ensure no two characters map to the same character
-			if (tToS.has(tChar)) {
-				return false;
-			}
-			sToT.set(sChar, tChar);
-			tToS.set(tChar, sChar);
+		// Check existing mappings
+		if (
+			(sToT.has(sChar) && sToT.get(sChar) !== tChar) ||
+			(tToS.has(tChar) && tToS.get(tChar) !== sChar)
+		) {
+			return false; // Conflict in mappings, so not isomorphic
 		}
+
+		// Create mappings if not already present
+		sToT.set(sChar, tChar);
+		tToS.set(tChar, sChar);
 	}
 
-	return true;
+	return true; // If all checks pass, the strings are isomorphic
 };
